@@ -2,11 +2,15 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	//var config = grunt.file.readJSON('config.json');
-	var config ={};
-	config.buildFolder = grunt.option('build');
-	config.appName= grunt.option('app');
-	config.pageOneName=grunt.option('one');
-	config.pageTwoName=grunt.option('two');
+
+	var config = grunt.file.readJSON(grunt.option('CONFIG'));
+	var data = grunt.file.readJSON(grunt.option('DB'));
+
+	//var config ={};
+	//config.buildFolder = grunt.option('build');
+	//config.appName= grunt.option('app');
+	//config.pageOneName=grunt.option('one');
+	//config.pageTwoName=grunt.option('two');
 
 	
 
@@ -51,12 +55,21 @@ return grunt.template.process(files,{data: {pageTitle1: config.appName}});
 }});
 	 });
 
+grunt.registerTask('data',function(){ 
+		//var config = grunt.file.readJSON('config.json');
+		
+console.log(data.name);
+		
+	 });
 
 
 
 
   	grunt.registerTask('build', 
-		['generar1','generar2','generar3']);
+		['generar1','generar2','generar3','data']);
+
+
+
 
 
 
