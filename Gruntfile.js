@@ -6,6 +6,23 @@ module.exports = function (grunt) {
 	var config = grunt.file.readJSON(grunt.option('CONFIG'));
 	var data = grunt.file.readJSON(grunt.option('DB'));
 
+
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
+
+
+
+	// Project configuration. 
+	grunt.initConfig({
+	  jasmine: {
+	    JS: {
+	      src: 'js/*.js',
+	      options: {
+	        specs: 'spec/*.spec.js'
+	      }
+	    }
+	  }
+	});
+
 	//var config ={};
 	//config.buildFolder = grunt.option('build');
 	//config.appName= grunt.option('app');
