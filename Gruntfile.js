@@ -36,6 +36,7 @@ grunt.file.copy('page1.html',config.buildFolder+'/page1.html',{process: function
 
 return grunt.template.process(files,{data: {pageTitle2: config.pageOneName}});
 }});
+     });
 
 
 grunt.registerTask('generar3',function(){ 
