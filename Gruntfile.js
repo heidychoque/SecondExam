@@ -3,7 +3,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	//var config = grunt.file.readJSON('config.json');
 
-	var config = grunt.file.readJSON(grunt.option('CONFIG'));
+	var configOpt = grunt.option('CONFIG') || 'config.json';
+	var config = grunt.file.readJSON(configOpt);
 	var data = grunt.file.readJSON(grunt.option('DB'));
 
 
@@ -68,7 +69,7 @@ grunt.registerTask('generar3',function(){
 grunt.file.copy('page2.html',config.buildFolder+'/page2.html',{process: function(files){
 	//console.log(content);
 
-return grunt.template.process(files,{data: {pageTitle1: config.appName}});
+return grunt.template.process(files,{data: {pageTitle3: config.pageTwoName}});
 }});
 	 });
 
